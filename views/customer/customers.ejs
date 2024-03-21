@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/styles/allcustomer.css" />
+    <link rel="stylesheet" href="/styles/navbar.css">
+  </head>
+  <body>
+    <%- include('../partials/navbar') %>
+    <div class="container">
+      <h1>All Customers</h1>
+      <div class="customer-cards">
+        <% Customers.forEach(customer => { %>
+        <div class="customer-card">
+          <h2><%= customer.name %></h2>
+          <p>Email: <%= customer.email %></p>
+          <p>Account Number: <%= customer.accountNumber %></p>
+          <p>Balance: $<%= customer.balance %></p>
+          <% const id = customer._id.toString() %>
+          <a href="/customers/<%=id%>" class="btn"> More </a>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+
+    <script src="" async defer></script>
+  </body>
+</html>

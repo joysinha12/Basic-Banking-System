@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Base styles for the table */
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Styling for table header */
+.transaction-table th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+}
+
+/* Styling for alternating rows */
+.transaction-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.transaction-table tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Styling for table cells */
+.transaction-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+

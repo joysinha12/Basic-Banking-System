@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/styles/home.css">
+        <link rel="stylesheet" href="/styles/navbar.css">
+        <link rel="stylesheet" href="/styles/transfer.css">
+    </head>
+    <body>
+        <%- include('../partials/navbar') %>
+        <div class="container">
+            <h1>Money Transfer Form</h1>
+            <form id="transferForm" action="/transfer" method="POST" onsubmit="return validateForm()">
+                <!-- User Details -->
+                <h2>Your Details</h2>
+                <label for="senderName">Your Name:</label>
+                <input type="text" id="senderName" name="senderName" value="<%=firstUser.name%>" readonly>
+    
+                <label for="senderAccountNumber">Your Account Number:</label>
+                <input type="text" id="senderAccountNumber" name="senderAccountNumber" value="<%=firstUser.accountNumber%>" readonly>
+                
+                <input type="hidden" id="userBalance" name="userBalance" value="<%= firstUser.balance %>">
+                <!-- Transfer Type -->
+                <h2>Transaction Type</h2>
+                <label for="transferType">Type of Transaction:</label>
+                <select id="transferType" name="transferType" required>
+                    <option value="">Select Type</option>
+                    <option value="deposit">Deposit</option>
+                    <option value="withdraw">Withdraw</option>
+                    <option value="transfer">Transfer</option>
+                </select>
+    
+                <!-- Transfer Details (if Transfer) -->
+                <div id="transferDetails" style="display: none;">
+                    <label for="receiverAccountNumber">Receiver's Account Number:</label>
+                    <input type="text" id="receiverAccountNumber" name="receiverAccountNumber">
+                </div>
+                <div id="amountDetails" style="display: none;">
+                    <label id="amountLabel" for="transferAmount">Amount to Transfer:</label>
+                    <input type="number" id="transferAmount" name="transferAmount" required>
+                </div>
+                <!-- Submit Button -->
+                <div>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+        <script src="/scripts/validateTransferForm.js"></script>
+    </body>
+</html>

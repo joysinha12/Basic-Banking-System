@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/styles/home.css">
+    <link rel="stylesheet" href="/styles/navbar.css">
+  </head>
+  <body>
+    <%- include('../partials/navbar') %>
+    <div class="container">
+      <h1><%= customer.name %></h1>
+
+      <p>Account Number: <%= customer.accountNumber %></p>
+      <p>Balance: $<%= customer.balance %></p>
+      <p>Ph. No.: <%= customer.phoneNumber %></p>
+
+      <h2>Transaction History</h2>
+      <table class="transaction-table">
+        <thead>
+          <tr>
+            <th>Transaction ID</th>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Account Number</th>
+            <th>Amount</th>
+            <th>Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% customer.transactionHistory.sort((a, b) => new Date(b.date) - new Date(a.date)).forEach(transaction => { %>
+          <tr>
+            <td><%= transaction._id %></td>
+            <td><%= transaction.date.toDateString() %></td>
+            <td><%= transaction.type %></td>
+            <td><%= transaction.accountNumber %></td>
+            <td><%= transaction.amount %></td>
+            <td><%= transaction.balance %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+    <script src="" async defer></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+<!-- navbar.ejs -->
+<nav class="navbar">
+    <ul class="nav-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="javascript:history.back()">Back</a></li>
+        <% if (showTransferButton) { %>
+            <li><a href="/transfer/<%= custId %>">Transfer Funds</a></li>
+        <% } %>
+    </ul>
+</nav>
